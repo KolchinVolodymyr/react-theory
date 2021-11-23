@@ -20,6 +20,9 @@ function App() {
         </a>
       </header>
       <Car name={'Ford'} year={2018}/>
+      <Car name={'Mazda'} year={2016}>
+        <p>COLOR</p>
+      </Car>
       <Car name={'Audi'} year={2012}/>
     </div>
   );
