@@ -47,20 +47,22 @@ class App extends React.Component {
 
           <button onClick={this.toggleCarsHandler}>Toggle cars </button>
 
-          { this.state.showCars
-             ? this.state.cars.map((car, index)=> {
-                return (
-                    <Car
-                        key={index}
-                        name={car.name}
-                        year={car.year}
-                        onDelete={this.deleteHandler.bind(this, index)}
-                        onChangeName={(event)=> this.onChangeName(event.target.value, index)}
-                    />
-                )
-              })
-             : null
-          }
+          <div style={{width:400, margin: 'auto', paddingTop: '20px'}}>
+              { this.state.showCars
+                 ? this.state.cars.map((car, index)=> {
+                    return (
+                        <Car
+                            key={index}
+                            name={car.name}
+                            year={car.year}
+                            onDelete={this.deleteHandler.bind(this, index)}
+                            onChangeName={(event)=> this.onChangeName(event.target.value, index)}
+                        />
+                    )
+                  })
+                 : null
+              }
+          </div>
         </div>
       );
     }
