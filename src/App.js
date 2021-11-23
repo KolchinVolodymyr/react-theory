@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import Car from './Car/Car';
 
 function App() {
   return (
@@ -18,6 +19,11 @@ function App() {
           Learn React
         </a>
       </header>
+      <Car name={'Ford'} year={2018}/>
+      <Car name={'Mazda'} year={2016}>
+        <p>COLOR</p>
+      </Car>
+      <Car name={'Audi'} year={2012}/>
     </div>
   );
 }
