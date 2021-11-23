@@ -1,31 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
 import Car from './Car/Car';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <Car name={'Ford'} year={2018}/>
-      <Car name={'Mazda'} year={2016}>
-        <p>COLOR</p>
-      </Car>
-      <Car name={'Audi'} year={2012}/>
-    </div>
-  );
+class App extends React.Component {
+    state = {
+        cars: [
+            {name: 'Ford', year: 2018},
+            {name: 'Audi', year: 2016},
+            {name: 'Mazda', year: 2010},
+        ],
+        pageTitle: 'React components'
+    }
+    render() {
+    const cars = this.state.cars
+      return (
+        <div className="App">
+          <h1>{this.state.pageTitle} </h1>
+          <Car name={cars[0].name} year={cars[0].year} />
+          <Car name={cars[1].name} year={cars[1].year} />
+          <Car name={cars[2].name} year={cars[2].year} />
+        </div>
+      );
+    }
+
 }
 
 export default App;
