@@ -13,7 +13,11 @@ class App extends React.Component {
         pageTitle: 'React components'
     }
     changeTitleHandler = () => {
-        console.log('click')
+        const oldTitle = this.state.pageTitle;
+        const newTitle = oldTitle + '(changed)'
+        this.setState({
+            pageTitle: newTitle
+        })
     }
     render() {
     const cars = this.state.cars
