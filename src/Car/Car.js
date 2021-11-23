@@ -4,6 +4,7 @@ export default props =>  (
     <div>
         <h2>Car name: {props.name}</h2>
         <p>Year: <strong>{props.year}</strong></p>
-        <button onClick={props.onChangeTitle}>Click</button>
+        <input type="text" onChange={props.onChangeName} value={props.name}/>
+        <button onClick={props.onDelete}>Delete</button>
     </div>
 )
