@@ -1,17 +1,8 @@
 import React from 'react'
 
-//function Car() {
-//    return (
-//        <h2>This is car component</h2>
-//    )
-//}
-const car = () => {
-    return (
+export default props =>  (
         <div>
-            <h2>This is car component</h2>
-            <p>Number: <strong>{Math.round(Math.random()*100)}</strong></p>
+            <h2>Car name: {props.name}</h2>
+            <p>Year: <strong>{props.year}</strong></p>
         </div>
     )
-}
-
-export default car
