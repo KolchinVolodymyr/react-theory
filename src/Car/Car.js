@@ -18,6 +18,10 @@ class Car extends React.Component {
     componentDidUpdate() {
         console.log('Car componentDidUpdate')
     }
+     componentWillUnmount() {
+        console.log('Car componentWillUnmount')
+      }
+
 
     render() {
         console.log('Car render')
