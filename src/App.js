@@ -3,6 +3,7 @@ import './App.css';
 import Car from './Car/Car';
 import React from 'react';
 import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
+import Counter from './Counter/Counter';
 
 class App extends React.Component {
     constructor(props) {
@@ -60,8 +61,15 @@ class App extends React.Component {
       return (
         <div className="App">
           <h1>{this.state.pageTitle}</h1>
+          <Counter />
+          <hr/>
 
-          <button onClick={this.toggleCarsHandler}>Toggle cars </button>
+          <button
+            style={{marginTop: 20}}
+            className={'AppButton'}
+            onClick={this.toggleCarsHandler}
+          >Toggle cars</button>
+
 
           <div style={{width:400, margin: 'auto', paddingTop: '20px'}}>
               { this.state.showCars
