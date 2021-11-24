@@ -1,5 +1,6 @@
-import React from 'react'
-import './Car.css'
+import React from 'react';
+import './Car.css';
+import PropTypes from 'prop-types';
 
 class Car extends React.Component {
     componentWillReceiveProps(nextProps) {
@@ -71,4 +72,12 @@ class Car extends React.Component {
                  <button onClick={this.props.onDelete}>Delete</button>
             </div>)}
  }
+
+ Car.propTypes = {
+   name: PropTypes.string.isRequired,
+   year: PropTypes.number,
+   onChangeName: PropTypes.func,
+   onDelete: PropTypes.func
+ }
+
 export default Car
