@@ -1,22 +1,39 @@
 import React from 'react'
-import Radium from 'radium'
 import './Car.css'
 
 class Car extends React.Component {
-render() {
-     const inputClasses = ['input']
+    componentWillReceiveProps(nextProps) {
+        console.log('Car componentWillReceiveProps', nextProps)
+    }
 
-     if(this.props.name !== '') {
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log('Car shouldComponentUpdate', nextProps, nextState)
+        return nextProps.name.trim() !== this.props.name.trim()
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+        console.log('Car componentWillUpdate', nextProps, nextState)
+    }
+
+    componentDidUpdate() {
+        console.log('Car componentDidUpdate')
+    }
+
+    render() {
+        console.log('Car render')
+        const inputClasses = ['input']
+
+        if(this.props.name !== '') {
          inputClasses.push('green')
-     } else {
+        } else {
          inputClasses.push('red')
-     }
+        }
 
-     if(this.props.name.length >4) {
+        if(this.props.name.length >4) {
          inputClasses.push('bold')
-     }
+        }
 
-     const style = {
+        const style = {
          border: '1px solid #ccc',
          boxShadow: '0 4px 5px 0 rgba(0, 0, 0, .14)',
          ':hover': {
@@ -24,19 +41,19 @@ render() {
             boxShadow: '0 4px 15px rgba(0, 0, 0, .25)',
             cursor: 'pointer'
          }
-     }
+        }
 
-     return (
-     <div className='Car' style={style}>
-         <h2>Car name: {this.props.name}</h2>
-         <p>Year: <strong>{this.props.year}</strong></p>
-         <input
-             type="text"
-             onChange={this.props.onChangeName}
-             value={this.props.name}
-             className={inputClasses.join(' ')}
-             />
-         <button onClick={this.props.onDelete}>Delete</button>
-     </div>)}
+        return (
+             <div className='Car' style={style}>
+                 <h2>Car name: {this.props.name}</h2>
+                 <p>Year: <strong>{this.props.year}</strong></p>
+                 <input
+                     type="text"
+                     onChange={this.props.onChangeName}
+                     value={this.props.name}
+                     className={inputClasses.join(' ')}
+                     />
+                 <button onClick={this.props.onDelete}>Delete</button>
+            </div>)}
  }
-export default Radium(Car)
+export default Car
