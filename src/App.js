@@ -4,14 +4,18 @@ import Car from './Car/Car';
 import React from 'react';
 
 class App extends React.Component {
-    state = {
-        cars: [
+    constructor(props) {
+        super(props)
+
+        this.state = {
+          cars: [
             {name: 'Ford', year: 2018},
             {name: 'Audi', year: 2016},
-            {name: 'Mazda', year: 2010},
-        ],
-        pageTitle: 'React components',
-        showCars: false
+            {name: 'Mazda', year: 2010}
+          ],
+          pageTitle: 'React components',
+          showCars: false
+        }
     }
     onChangeName(name, index) {
         const car = this.state.cars[index];
