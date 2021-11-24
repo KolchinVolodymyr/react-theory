@@ -2,16 +2,17 @@ import React from 'react'
 import Radium from 'radium'
 import './Car.css'
 
-const Car = props => {
+class Car extends React.Component {
+render() {
      const inputClasses = ['input']
 
-     if(props.name !== '') {
+     if(this.props.name !== '') {
          inputClasses.push('green')
      } else {
          inputClasses.push('red')
      }
 
-     if(props.name.length >4) {
+     if(this.props.name.length >4) {
          inputClasses.push('bold')
      }
 
@@ -24,17 +25,18 @@ const Car = props => {
             cursor: 'pointer'
          }
      }
+
      return (
      <div className='Car' style={style}>
-         <h2>Car name: {props.name}</h2>
-         <p>Year: <strong>{props.year}</strong></p>
+         <h2>Car name: {this.props.name}</h2>
+         <p>Year: <strong>{this.props.year}</strong></p>
          <input
              type="text"
-             onChange={props.onChangeName}
-             value={props.name}
+             onChange={this.props.onChangeName}
+             value={this.props.name}
              className={inputClasses.join(' ')}
              />
-         <button onClick={props.onDelete}>Delete</button>
-     </div>)
+         <button onClick={this.props.onDelete}>Delete</button>
+     </div>)}
  }
 export default Radium(Car)

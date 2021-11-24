@@ -5,6 +5,7 @@ import React from 'react';
 
 class App extends React.Component {
     constructor(props) {
+    console.log('App constructor');
         super(props)
 
         this.state = {
@@ -36,6 +37,7 @@ class App extends React.Component {
           pageTitle: event.target.value
         })
     }
+
     deleteHandler(index) {
         console.log('delete');
         let cars =  this.state.cars.concat();
@@ -43,7 +45,16 @@ class App extends React.Component {
         this.setState({cars})
     }
 
+    componentWillMount() {
+        console.log('App componentWillMount');
+    }
+
+    componentDidMount() {
+        console.log('App componentDidMount');
+    }
+
     render() {
+    console.log('App render');
     const cars = this.state.cars
       return (
         <div className="App">
